@@ -3,18 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClarosMed | Institutional AI Safety, Red-Teaming &amp; Healthcare Evaluation</title>
-  <meta name="description" content="ClarosMed is an independent AI safety, adversarial red-teaming, and healthcare evaluation practice supporting AI labs and enterprise healthcare organizations." />
+  <title>ClarosMed | AI Safety, Healthcare Evaluation &amp; Public Health Infrastructure Governance</title>
+  <meta name="description" content="ClarosMed, a practice of Do Better Consulting LLC, delivers domain-grounded AI safety red-teaming, healthcare evaluation, and NY-PA infrastructure public-health governance." />
+  <meta property="og:title" content="ClarosMed | Do Better Consulting LLC" />
+  <meta property="og:description" content="Institutional AI safety red-teaming, behavioral health evaluation, and NY-PA regulated infrastructure public-health governance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clarosmed.org" />
   <style>
     :root {
-      --obsidian: #0b111a;
-      --obsidian-light: #131c2b;
+      --obsidian: #080d16;
+      --obsidian-2: #101827;
+      --obsidian-3: #162135;
       --gold: #c8a24d;
-      --gold-soft: #e6cf93;
-      --gold-border: rgba(200, 162, 77, 0.28);
+      --gold-light: #e5cc8d;
+      --gold-dim: rgba(200, 162, 77, 0.28);
       --bg: #f8fafc;
       --surface: #ffffff;
-      --text: #0f172a;
+      --ink: #0f172a;
       --muted: #475569;
       --border: #e2e8f0;
     }
@@ -23,20 +28,38 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--ink);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-    /* Top Navigation */
+    /* Top Bar */
+    .topbar {
+      background: #05080f;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: #94a3b8;
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      padding: 8px 0;
+    }
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topbar a { color: var(--gold-light); text-decoration: none; font-weight: 600; }
+
+    /* Navigation */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(11, 17, 26, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--gold-border);
+      background: rgba(8, 13, 22, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gold-dim);
     }
     .nav-inner {
       display: flex;
@@ -51,92 +74,121 @@
       text-decoration: none;
     }
     .nav-emblem {
-      height: 46px;
-      width: auto;
+      height: 44px;
+      width: 44px;
+      object-fit: cover;
       border-radius: 6px;
-      border: 1px solid var(--gold-border);
+      border: 1px solid var(--gold-dim);
+      background: var(--obsidian-2);
     }
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
+    .brand-text { display: flex; flex-direction: column; }
     .brand-name {
       color: #ffffff;
       font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
+      font-size: 1.08rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       line-height: 1.1;
     }
     .brand-sub {
-      color: var(--gold-soft);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
+      color: var(--gold-light);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-top: 2px;
+      margin-top: 3px;
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 26px;
     }
     .nav-links a {
       color: #cbd5e1;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--gold-soft); }
+    .nav-links a:hover { color: var(--gold-light); }
     .nav-cta {
       background: var(--gold);
       color: var(--obsidian) !important;
       padding: 10px 18px;
       border-radius: 6px;
       font-weight: 700 !important;
-      font-size: 0.86rem !important;
-      letter-spacing: 0.02em;
+      font-size: 0.85rem !important;
     }
-    .nav-cta:hover { background: var(--gold-soft); }
+    .nav-cta:hover { background: var(--gold-light); }
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold-light);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .mobile-menu {
+      display: none;
+      background: var(--obsidian-2);
+      border-bottom: 1px solid var(--gold-dim);
+      padding: 16px 24px 20px;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 6px 0;
+    }
 
     /* Hero */
     .hero {
-      background: radial-gradient(circle at top right, #172336 0%, var(--obsidian) 65%);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(200, 162, 77, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 15% 85%, rgba(30, 58, 138, 0.18) 0%, transparent 50%),
+        var(--obsidian);
       color: #ffffff;
-      padding: 84px 0 72px;
-      border-bottom: 1px solid var(--gold-border);
+      padding: 84px 0 76px;
+      border-bottom: 1px solid var(--gold-dim);
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
-      gap: 48px;
+      grid-template-columns: 1.32fr 0.68fr;
+      gap: 52px;
       align-items: center;
     }
     .eyebrow {
       display: inline-block;
-      color: var(--gold-soft);
-      font-size: 0.78rem;
+      color: var(--gold-light);
+      font-size: 0.74rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 16px;
-      border: 1px solid var(--gold-border);
-      padding: 5px 12px;
+      margin-bottom: 18px;
+      border: 1px solid var(--gold-dim);
+      padding: 6px 13px;
       border-radius: 4px;
       background: rgba(200, 162, 77, 0.08);
     }
     .hero h1 {
-      font-size: 2.85rem;
-      line-height: 1.15;
+      font-size: 2.95rem;
+      line-height: 1.12;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       margin-bottom: 20px;
     }
+    .hero h1 span { color: var(--gold-light); }
     .hero p {
       color: #cbd5e1;
-      font-size: 1.08rem;
-      max-width: 620px;
-      margin-bottom: 32px;
+      font-size: 1.07rem;
+      max-width: 640px;
+      margin-bottom: 30px;
     }
     .hero-actions {
       display: flex;
@@ -150,39 +202,61 @@
       font-weight: 700;
       padding: 14px 26px;
       border-radius: 6px;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
     }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
     .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.26);
       color: #ffffff;
       text-decoration: none;
       font-weight: 600;
-      padding: 14px 26px;
+      padding: 14px 24px;
       border-radius: 6px;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
     }
-    .hero-visual {
-      display: flex;
-      justify-content: center;
+    .btn-secondary:hover { border-color: var(--gold-light); background: rgba(255,255,255,0.04); }
+    .hero-panel {
+      background: rgba(16, 24, 39, 0.85);
+      border: 1px solid var(--gold-dim);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      text-align: center;
     }
     .hero-seal {
       width: 100%;
-      max-width: 340px;
-      border-radius: 12px;
-      border: 1px solid var(--gold-border);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      max-width: 260px;
+      border-radius: 10px;
+      border: 1px solid var(--gold-dim);
+      margin-bottom: 18px;
+    }
+    .panel-caption {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .panel-meta {
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      font-weight: 600;
     }
 
-    /* Institutional Trust Strip */
+    /* Trust Strip */
     .trust-strip {
-      background: var(--obsidian-light);
+      background: var(--obsidian-2);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 26px 0;
+      padding: 28px 0;
     }
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
     .trust-item {
       border-left: 2px solid var(--gold);
@@ -191,38 +265,77 @@
     .trust-val {
       color: #ffffff;
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1.06rem;
     }
     .trust-label {
       color: #94a3b8;
       font-size: 0.82rem;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     /* Sections */
-    section { padding: 76px 0; }
-    .section-head { margin-bottom: 42px; max-width: 720px; }
+    section { padding: 80px 0; }
+    .alt-bg {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .section-head { margin-bottom: 38px; max-width: 760px; }
     .section-kicker {
       color: #947122;
       font-weight: 700;
       font-size: 0.78rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .section-head h2 {
-      font-size: 2rem;
+      font-size: 2.05rem;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
-      color: var(--text);
+      color: var(--ink);
     }
     .section-head p { color: var(--muted); font-size: 1.02rem; }
 
-    /* Practice Cards */
+    /* Interactive Practice Switcher */
+    .tab-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: #e2e8f0;
+      padding: 6px;
+      border-radius: 10px;
+      margin-bottom: 34px;
+    }
+    .tab-btn {
+      border: none;
+      background: transparent;
+      color: #334155;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 11px 20px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--obsidian);
+      color: var(--gold-light);
+      box-shadow: 0 4px 12px rgba(8, 13, 22, 0.22);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Cards */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
     .card {
       background: var(--surface);
@@ -231,14 +344,24 @@
       border-radius: 10px;
       padding: 28px;
       box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .card-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #947122;
+      margin-bottom: 8px;
     }
     .card h3 {
       font-size: 1.12rem;
-      margin-bottom: 12px;
-      color: var(--text);
+      margin-bottom: 10px;
+      color: var(--ink);
     }
     .card p {
-      font-size: 0.94rem;
+      font-size: 0.93rem;
       color: var(--muted);
       margin-bottom: 16px;
     }
@@ -246,9 +369,10 @@
       list-style: none;
       border-top: 1px solid var(--border);
       padding-top: 14px;
+      margin-top: auto;
     }
     .card li {
-      font-size: 0.88rem;
+      font-size: 0.87rem;
       color: #334155;
       padding: 4px 0 4px 16px;
       position: relative;
@@ -260,73 +384,66 @@
       left: 0;
     }
 
-    /* Methodology */
-    .method-bg { background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .step {
+    /* Engagement Models */
+    .engage-card {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 24px;
+      display: flex;
+      flex-direction: column;
     }
-    .step-num {
-      font-size: 0.8rem;
+    .engage-card.featured {
+      background: var(--obsidian);
+      color: #ffffff;
+      border: 1px solid var(--gold-dim);
+    }
+    .engage-card.featured p { color: #cbd5e1; }
+    .engage-num {
+      font-size: 0.76rem;
       font-weight: 800;
-      color: #947122;
+      color: var(--gold);
       letter-spacing: 0.1em;
       margin-bottom: 10px;
+      text-transform: uppercase;
     }
-    .step h3 { font-size: 1.02rem; margin-bottom: 8px; }
-    .step p { font-size: 0.9rem; color: var(--muted); }
+    .engage-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .engage-card p { font-size: 0.89rem; color: var(--muted); }
 
-    /* Track Record & References */
+    /* Track Record */
     .record-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.22fr 0.78fr;
       gap: 28px;
       align-items: start;
     }
-    .record-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .record-list { display: flex; flex-direction: column; gap: 16px; }
     .record-item {
       background: var(--surface);
       border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
       border-radius: 10px;
       padding: 22px 24px;
     }
-    .record-item h3 { font-size: 1.02rem; margin-bottom: 6px; }
+    .record-item h3 { font-size: 1.04rem; margin-bottom: 6px; }
     .record-item p { font-size: 0.92rem; color: var(--muted); }
     .ref-box {
       background: var(--obsidian);
       color: #ffffff;
-      border: 1px solid var(--gold-border);
+      border: 1px solid var(--gold-dim);
       border-radius: 12px;
       padding: 32px;
     }
-    .ref-box h3 {
-      color: var(--gold-soft);
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-    }
-    .ref-box p {
-      color: #cbd5e1;
-      font-size: 0.94rem;
-      margin-bottom: 16px;
-    }
+    .ref-box h3 { color: var(--gold-light); font-size: 1.2rem; margin-bottom: 12px; }
+    .ref-box p { color: #cbd5e1; font-size: 0.93rem; margin-bottom: 16px; }
+    .ref-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .ref-tag {
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: var(--gold-soft);
+      color: var(--gold-light);
       background: rgba(200, 162, 77, 0.12);
-      border: 1px solid var(--gold-border);
+      border: 1px solid var(--gold-dim);
       padding: 6px 12px;
       border-radius: 4px;
     }
@@ -336,56 +453,77 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 32px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 24px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 32px;
       align-items: center;
     }
-    .leader-info { max-width: 720px; }
     .leader-role {
       color: #947122;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
     }
-    .leader-info h3 { font-size: 1.4rem; margin-bottom: 10px; }
-    .leader-info p { color: var(--muted); font-size: 0.95rem; margin-bottom: 14px; }
+    .leader-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+    .leader-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
     .cred-pills { display: flex; flex-wrap: wrap; gap: 8px; }
     .pill {
       background: #f1f5f9;
       border: 1px solid var(--border);
       color: #334155;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 5px 12px;
+      padding: 6px 12px;
       border-radius: 999px;
     }
+    .direct-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+    }
+    .direct-box h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #947122;
+      margin-bottom: 12px;
+    }
+    .direct-line {
+      font-size: 0.92rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .direct-line a { color: var(--ink); text-decoration: none; }
+    .direct-line a:hover { color: #947122; }
 
     /* CTA & Footer */
     .cta-section {
-      background: var(--obsidian);
+      background:
+        radial-gradient(circle at top left, #172438 0%, var(--obsidian) 65%);
       color: #ffffff;
-      padding: 68px 0;
-      border-top: 1px solid var(--gold-border);
+      padding: 72px 0;
+      border-top: 1px solid var(--gold-dim);
     }
     .cta-box {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
     }
-    .cta-box h2 { font-size: 1.85rem; margin-bottom: 8px; }
-    .cta-box p { color: #cbd5e1; max-width: 600px; }
+    .cta-box h2 { font-size: 1.95rem; margin-bottom: 10px; }
+    .cta-box p { color: #cbd5e1; max-width: 620px; font-size: 1rem; }
+    .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
     footer {
-      background: #070b12;
+      background: #05080f;
       color: #94a3b8;
       padding: 28px 0;
-      font-size: 0.84rem;
+      font-size: 0.83rem;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
     .footer-inner {
@@ -395,47 +533,65 @@
       gap: 12px;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid, .grid-3, .grid-4, .trust-grid, .record-grid { grid-template-columns: 1fr; }
+    @media (max-width: 920px) {
+      .hero-grid, .grid-3, .grid-4, .trust-grid, .record-grid, .leader-card { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .menu-btn { display: inline-block; }
       .hero h1 { font-size: 2.15rem; }
     }
   </style>
 </head>
 <body>
 
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Do Better Consulting LLC · New York Registered · W-9 &amp; NDA Ready</div>
+      <div>Direct Principal Line: <a href="tel:5703098752">570-309-8752</a> &nbsp;|&nbsp; <a href="mailto:zughbieh@gmail.com">zughbieh@gmail.com</a></div>
+    </div>
+  </div>
+
   <nav>
     <div class="container nav-inner">
       <a href="#" class="brand">
-        <img src="logo.png" alt="ClarosMed Emblem" class="nav-emblem" />
+        <img src="logo.png" alt="ClarosMed Emblem" class="nav-emblem" onerror="this.style.display='none'" />
         <div class="brand-text">
           <span class="brand-name">ClarosMed</span>
-          <span class="brand-sub">AI Safety &amp; Healthcare Evaluation</span>
+          <span class="brand-sub">A Practice of Do Better Consulting LLC</span>
         </div>
       </a>
       <div class="nav-links">
-        <a href="#capabilities">Capabilities</a>
-        <a href="#methodology">Methodology</a>
+        <a href="#practices">Practices</a>
+        <a href="#engagements">Engagements</a>
         <a href="#track-record">Track Record</a>
         <a href="#leadership">Leadership</a>
-        <a href="#contact" class="nav-cta">Request Engagement</a>
+        <a href="#contact" class="nav-cta">Request Briefing</a>
       </div>
+      <button class="menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')">Menu</button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#practices" onclick="this.parentElement.classList.remove('open')">Practices</a>
+      <a href="#engagements" onclick="this.parentElement.classList.remove('open')">Engagements</a>
+      <a href="#track-record" onclick="this.parentElement.classList.remove('open')">Track Record</a>
+      <a href="#leadership" onclick="this.parentElement.classList.remove('open')">Leadership</a>
+      <a href="#contact" onclick="this.parentElement.classList.remove('open')">Request Briefing</a>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="eyebrow">Independent AI Governance &amp; Clinical-Workflow Advisory</div>
-        <h1>Domain-Grounded AI Safety for Regulated Healthcare.</h1>
-        <p>ClarosMed partners with frontier AI labs, health-tech platforms, and enterprise healthcare organizations to red-team behavioral models, audit clinical workflows, and enforce evidence-based safety rubrics before deployment.</p>
+        <div class="eyebrow">Institutional AI Safety · Public Health &amp; Infrastructure Governance</div>
+        <h1>Domain-Grounded Risk Intelligence for <span>Regulated AI &amp; Critical Infrastructure.</span></h1>
+        <p>ClarosMed—the advisory practice of Do Better Consulting LLC—partners with frontier AI labs, healthcare enterprises, and NY–PA infrastructure developers to eliminate high-stakes failure modes before deployment, regulatory review, or town-board votes.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary">Initiate a Consultation</a>
-          <a href="#capabilities" class="btn-secondary">Explore Capabilities</a>
+          <a href="#contact" class="btn-primary">Initiate Executive Briefing</a>
+          <a href="#practices" class="btn-secondary">Explore Both Practices</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <img src="logo.png" alt="ClarosMed Seal" class="hero-seal" />
+      <div class="hero-panel">
+        <img src="logo.png" alt="ClarosMed Institutional Seal" class="hero-seal" onerror="this.style.display='none'" />
+        <div class="panel-caption">Dual-Domain Advisory Architecture</div>
+        <div class="panel-meta">Healthcare AI Safety &amp; NY–PA Public Health Governance</div>
       </div>
     </div>
   </header>
@@ -443,93 +599,144 @@
   <div class="trust-strip">
     <div class="container trust-grid">
       <div class="trust-item">
-        <div class="trust-val">Fortune 100</div>
-        <div class="trust-label">Enterprise &amp; National Client Pedigree</div>
+        <div class="trust-val">$18M+ Enterprise</div>
+        <div class="trust-label">Hospital &amp; National Account Closing Pedigree</div>
       </div>
       <div class="trust-item">
-        <div class="trust-val">US-Based Practice</div>
-        <div class="trust-label">New York Registered · Async &amp; Sprint Ready</div>
+        <div class="trust-val">MPH · Poli Sci</div>
+        <div class="trust-label">Graduate Public Health, Pre-Genetic &amp; Policy Depth</div>
       </div>
       <div class="trust-item">
-        <div class="trust-val">MPH &amp; Behavioral</div>
-        <div class="trust-label">Multidisciplinary Clinical Milieu Depth</div>
+        <div class="trust-val">23-Zone NY–PA Radar</div>
+        <div class="trust-label">Live County Sentiment &amp; Municipal Intelligence</div>
       </div>
       <div class="trust-item">
-        <div class="trust-val">Verified References</div>
-        <div class="trust-label">Available Upon Request Under NDA</div>
+        <div class="trust-val">US LLC · NDA-Ready</div>
+        <div class="trust-label">Direct Principal Accountability &amp; Verified References</div>
       </div>
     </div>
   </div>
 
-  <section id="capabilities">
+  <section id="practices">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker">Core Practice Areas</div>
-        <h2>Precision Evaluation Where Generalist Testing Fails</h2>
-        <p>Healthcare AI failure modes are rarely obvious to non-specialist annotators. ClarosMed brings frontline behavioral health, public health, and enterprise payer experience directly into your evaluation loop.</p>
+        <div class="section-kicker">Core Advisory Practices</div>
+        <h2>Two Regulated Frontiers. One Evidence-Based Standard.</h2>
+        <p>Select your sector below to review how our principal-led specialist pods de-risk high-scrutiny deployments.</p>
       </div>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Behavioral Health &amp; Psychological Harm Red-Teaming</h3>
-          <p>Structured adversarial testing of conversational and decision-support models across high-vulnerability mental health and recovery scenarios.</p>
-          <ul>
-            <li>Crisis-escalation &amp; refusal boundary auditing</li>
-            <li>Eating disorder &amp; recovery-enabling detection</li>
-            <li>DBT, CBT &amp; ACT therapeutic alignment review</li>
-            <li>Severity tagging against incident taxonomies</li>
-          </ul>
+
+      <div class="tab-bar" role="tablist">
+        <button class="tab-btn active" onclick="switchTab('ai', this)">I. AI Safety &amp; Healthcare Evaluation (ClarosMed)</button>
+        <button class="tab-btn" onclick="switchTab('infra', this)">II. NY–PA Infrastructure &amp; Public Health Governance</button>
+      </div>
+
+      <!-- Practice I: AI Safety & Healthcare -->
+      <div id="tab-ai" class="tab-panel active">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-tag">Adversarial Testing</div>
+            <h3>Behavioral Health &amp; Psychological Harm Red-Teaming</h3>
+            <p>Structured adversarial stress-testing of conversational and clinical-support models across high-vulnerability mental health and recovery scenarios.</p>
+            <ul>
+              <li>Crisis-escalation &amp; refusal boundary auditing</li>
+              <li>Eating disorder &amp; recovery-enabling detection</li>
+              <li>DBT, CBT &amp; ACT therapeutic alignment review</li>
+              <li>Severity tagging against incident taxonomies</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-tag">Rubric Precision</div>
+            <h3>Public Health &amp; Biomedical Rubric Evaluation</h3>
+            <p>High-consistency grading, hallucination detection, and evidence-backed golden-response authoring for regulated biomedical datasets.</p>
+            <ul>
+              <li>Multi-page rubric execution &amp; drift auditing</li>
+              <li>Inter-rater calibration &amp; dispute adjudication</li>
+              <li>Pre-genetic &amp; population-health accuracy checks</li>
+              <li>Structured remediation rationales for RLHF</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-tag">Enterprise Workflows</div>
+            <h3>Payer, Coverage &amp; Clinical Operations Audits</h3>
+            <p>Real-world validation of AI systems touching US health plan logic, hospital clinical communications, and vulnerable patient care transitions.</p>
+            <ul>
+              <li>ACA Marketplace, Medicare &amp; employer plan logic</li>
+              <li>Care-transition &amp; patient navigation accuracy</li>
+              <li>Hospital nurse-call &amp; clinical workflow checks</li>
+              <li>Policy-hallucination &amp; compliance screening</li>
+            </ul>
+          </div>
         </div>
-        <div class="card">
-          <h3>Public Health &amp; Biomedical Rubric Evaluation</h3>
-          <p>High-consistency grading, hallucination detection, and evidence-backed rationale authoring for regulated biomedical and public health datasets.</p>
-          <ul>
-            <li>Multi-page rubric execution &amp; drift auditing</li>
-            <li>Inter-rater calibration &amp; dispute adjudication</li>
-            <li>Pre-genetic &amp; population-health accuracy checks</li>
-            <li>Structured remediation rationales for RLHF</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Enterprise Payer &amp; Healthcare Operations Audits</h3>
-          <p>Real-world validation of AI outputs touching US health plan administration, coverage logic, hospital systems, and patient care transitions.</p>
-          <ul>
-            <li>ACA Marketplace, Medicare &amp; employer plan logic</li>
-            <li>Care-transition &amp; patient navigation accuracy</li>
-            <li>Hospital clinical communication workflow checks</li>
-            <li>Policy-hallucination &amp; compliance screening</li>
-          </ul>
+      </div>
+
+      <!-- Practice II: NY-PA Infrastructure & Public Health Governance -->
+      <div id="tab-infra" class="tab-panel">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-tag">Proprietary Intelligence</div>
+            <h3>NY–PA County Hotspot &amp; Sentiment Radar</h3>
+            <p>Automated tracking across 23 Central NY, Finger Lakes, Western NY, Capital Region, Hudson Valley, and Pennsylvania corridors before hearings harden.</p>
+            <ul>
+              <li>Early-warning town board &amp; moratorium tracking</li>
+              <li>Precinct-level watershed &amp; ratepayer clustering</li>
+              <li>Live executive hotspot dossiers for leadership</li>
+              <li>Pre-open-house Q&amp;A and risk heat-mapping</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-tag">Public Health Translation</div>
+            <h3>Watershed, Acoustic &amp; EO 62 Readiness</h3>
+            <p>MPH-led scientific communication translating closed-loop cooling, acoustic mitigation, and air-quality facts for skeptical host communities.</p>
+            <ul>
+              <li>NY Executive Order 62 &amp; DPS GEIS readiness</li>
+              <li>6 NYCRR Parts 601/602 water-optics briefs</li>
+              <li>Finger Lakes &amp; Susquehanna watershed alignment</li>
+              <li>Credible Upstate NY native stakeholder facilitation</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-tag">Community Alignment</div>
+            <h3>Host-Community Benefit &amp; Prime Teaming</h3>
+            <p>Turnkey Community Benefit Agreements aligned with ESD's Community Investment Framework—delivered directly or as a subcontractor pod for engineering primes.</p>
+            <ul>
+              <li>K–12 STEM &amp; clinical ergonomics school programs</li>
+              <li>BOCES workforce &amp; apprenticeship alignment</li>
+              <li>White-label subcontractor pods for EPC &amp; SEQRA firms</li>
+              <li>Transparent public reporting &amp; coalition building</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="methodology" class="method-bg">
+  <section id="engagements" class="alt-bg">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker">Evaluation Architecture</div>
-        <h2>Built for Inter-Rater Consistency at Scale</h2>
-        <p>Every ClarosMed engagement follows a disciplined, auditable review workflow designed to integrate cleanly with frontier AI research teams and vendor evaluation portals.</p>
+        <div class="section-kicker">Engagement Architecture</div>
+        <h2>Structured for Rapid Enterprise Deployment</h2>
+        <p>Every engagement is scoped under clear deliverables, strict confidentiality, and direct principal oversight.</p>
       </div>
       <div class="grid-4">
-        <div class="step">
-          <div class="step-num">01 / SCOPE</div>
-          <h3>Failure-Mode Mapping</h3>
-          <p>Align on target clinical, behavioral, or administrative risk surfaces and severity taxonomies prior to batch execution.</p>
+        <div class="engage-card">
+          <div class="engage-num">01 / Entry Wedge</div>
+          <h3>10-Day Live Hotspot Diagnostic</h3>
+          <p>Rapid county-level sentiment audit, top-10 town-hall risk matrix, and MPH public-health counter-brief—100% credited toward Month 1 of an ongoing retainer.</p>
         </div>
-        <div class="step">
-          <div class="step-num">02 / STRESS-TEST</div>
-          <h3>Adversarial Execution</h3>
-          <p>Deploy multi-turn edge-case prompts and real-world patient scenarios to expose subtle hallucinations and unsafe advice.</p>
+        <div class="engage-card featured">
+          <div class="engage-num">02 / Flagship Retainer</div>
+          <h3>Multi-Site Governance Retainer</h3>
+          <p>Ongoing corridor intelligence, public-health translation, municipal stakeholder alignment, and Host-Community Benefit execution across NY and PA sites.</p>
         </div>
-        <div class="step">
-          <div class="step-num">03 / CALIBRATE</div>
-          <h3>Rubric &amp; Drift Audit</h3>
-          <p>Apply standardized scoring criteria across high-volume batches with rigorous quality checks and guideline citations.</p>
+        <div class="engage-card">
+          <div class="engage-num">03 / Prime Teaming</div>
+          <h3>EPC &amp; SEQRA Subcontractor Pod</h3>
+          <p>White-labeled regional intelligence and community-alignment support bolting cleanly onto existing engineering, environmental, and land-use law firm MSAs.</p>
         </div>
-        <div class="step">
-          <div class="step-num">04 / REMEDIATE</div>
-          <h3>Corrected Reasoning</h3>
-          <p>Deliver clean, evidence-backed golden responses and structured failure reports ready for model training teams.</p>
+        <div class="engage-card">
+          <div class="engage-num">04 / AI Evaluation</div>
+          <h3>Async AI Safety &amp; Red-Team Sprints</h3>
+          <p>US-based healthcare and behavioral-health model auditing, multi-page rubric execution, and inter-rater calibration for frontier AI labs and health-tech platforms.</p>
         </div>
       </div>
     </div>
@@ -539,52 +746,64 @@
     <div class="container">
       <div class="section-head">
         <div class="section-kicker">Institutional Pedigree</div>
-        <h2>Enterprise Healthcare &amp; Clinical Operations Track Record</h2>
-        <p>ClarosMed’s advisory methodology is grounded in over a decade of direct execution across Fortune 100 ecosystems, major multi-hospital health systems, and high-acuity clinical milieus.</p>
+        <h2>Proven Execution Across Healthcare, Enterprise &amp; Public Systems</h2>
+        <p>Our methodology is built on over a decade of high-stakes commercial execution, frontline clinical milieu work, and multi-state regulatory experience.</p>
       </div>
       <div class="record-grid">
         <div class="record-list">
           <div class="record-item">
-            <h3>Enterprise Health Systems &amp; Clinical Infrastructure</h3>
-            <p>Leadership experience negotiating and structuring complex, multi-hospital clinical communication and nurse-call safety deployments—including $18M+ 10-year enterprise health-system agreements across clinical, IT, biomedical engineering, and executive stakeholders.</p>
+            <h3>Enterprise Health Systems &amp; Clinical Infrastructure (Hillrom / Baxter)</h3>
+            <p>Led enterprise clinical communication, nurse-call safety, and surgical-table calibration engagements across hospital executives, clinical leadership, IT, biomedical engineering, and procurement—closing a 10-year, $18M+ multi-hospital agreement.</p>
           </div>
           <div class="record-item">
-            <h3>Fortune 100, Financial Institution &amp; National Payer Accounts</h3>
-            <p>Proven execution scaling digital healthcare exchange platforms across 60–80 national employer, bank, credit union, and association accounts, backed by deep familiarity with 48-state health plan compliance across employer, ACA Marketplace, and Medicare lines.</p>
+            <h3>National Payer &amp; Private-Exchange Operations (HealthPlan Services)</h3>
+            <p>Scaled a white-labeled digital private-exchange platform across 60–80 national employer, bank, credit union, and association accounts ($2M+ quarterly attainment), backed by former 48-state health plan licensure across employer, ACA Marketplace, and Medicare lines.</p>
           </div>
           <div class="record-item">
-            <h3>High-Acuity Behavioral Health &amp; Multidisciplinary Milieus</h3>
-            <p>Direct frontline collaboration with therapists and multidisciplinary care teams facilitating DBT, CBT, and ACT programming, crisis-risk identification, and protocol-compliant clinical documentation.</p>
+            <h3>High-Acuity Behavioral Health Milieus (Eating Recovery Center &amp; Helio Health)</h3>
+            <p>Direct frontline collaboration with therapists and multidisciplinary care teams facilitating evidence-based DBT, CBT, and ACT groups, crisis-risk identification, care-transition navigation, and incident-aligned clinical documentation.</p>
           </div>
         </div>
         <div class="ref-box">
-          <h3>Enterprise Vetting &amp; Verified References</h3>
-          <p>ClarosMed operates as an independent New York advisory practice (a registered DBA of <strong>Do Better Consulting LLC</strong>). We maintain strict confidentiality across client engagements and model evaluations.</p>
-          <p><strong>Verified professional, enterprise, and healthcare operations references are available upon request</strong> for AI research labs, enterprise procurement teams, and specialist evaluation cohorts.</p>
-          <span class="ref-tag">NDA-Ready · W-9 / US LLC Entity</span>
+          <h3>Enterprise Vetting &amp; Procurement Readiness</h3>
+          <p><strong>ClarosMed</strong> operates as an independent advisory practice of <strong>Do Better Consulting LLC</strong> (New York). We maintain strict confidentiality across client models, regulatory dockets, and municipal negotiations.</p>
+          <p><strong>Verified enterprise, clinical, and healthcare operations references are available upon request</strong> under NDA for AI labs, infrastructure developers, and prime engineering partners.</p>
+          <div class="ref-tags">
+            <span class="ref-tag">NY Registered LLC</span>
+            <span class="ref-tag">W-9 &amp; NDA Ready</span>
+            <span class="ref-tag">100% US-Based</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="leadership" class="method-bg">
+  <section id="leadership" class="alt-bg">
     <div class="container">
       <div class="section-head">
         <div class="section-kicker">Practice Leadership</div>
         <h2>Principal-Led Accountability</h2>
       </div>
       <div class="leader-card">
-        <div class="leader-info">
-          <div class="leader-role">Managing Principal · AI Safety &amp; Healthcare Evaluation</div>
+        <div>
+          <div class="leader-role">Managing Principal · Do Better Consulting LLC &amp; ClarosMed</div>
           <h3>Khaleel Zughbieh, MPH</h3>
-          <p>Khaleel leads ClarosMed’s evaluation methodology and client engagements, combining graduate public health training (MPH), postgraduate pre-genetic counseling coursework (SCUHS), frontline behavioral health facilitation (Eating Recovery Center, Helio Health), and enterprise healthcare systems leadership (Hillrom/Baxter, HealthPlan Services).</p>
+          <p>Born and raised in Central New York, Khaleel combines graduate public health training (MPH, Columbia Southern University), postgraduate pre-genetic counseling coursework (SCUHS), a BA in Political Science (SUNY Albany), frontline behavioral health leadership, and $18M+ enterprise healthcare systems execution.</p>
           <div class="cred-pills">
             <span class="pill">Master of Public Health (MPH)</span>
             <span class="pill">SCUHS Pre-Genetic Counseling</span>
+            <span class="pill">BA Political Science (SUNY Albany)</span>
             <span class="pill">DBT / CBT / ACT Facilitation</span>
             <span class="pill">NYS Certified Provisional Peer Specialist</span>
             <span class="pill">Former 48-State Health Plan Licensure</span>
           </div>
+        </div>
+        <div class="direct-box">
+          <h4>Direct Executive Desk</h4>
+          <div class="direct-line">Phone: <a href="tel:5703098752">570-309-8752</a></div>
+          <div class="direct-line">Email: <a href="mailto:zughbieh@gmail.com">zughbieh@gmail.com</a></div>
+          <div class="direct-line">Base: Auburn &amp; Syracuse, NY</div>
+          <div class="direct-line">Coverage: NY–PA Corridor &amp; US Remote</div>
         </div>
       </div>
     </div>
@@ -593,19 +812,31 @@
   <section id="contact" class="cta-section">
     <div class="container cta-box">
       <div>
-        <h2>Engage ClarosMed for Your Next Evaluation Sprint</h2>
-        <p>Available for US-based remote AI safety red-teaming, rubric auditing, and healthcare evaluation cohorts. Direct inquiries, W-9 requests, and reference verifications answered promptly.</p>
+        <h2>Initiate a Confidential Briefing</h2>
+        <p>Request our live NY–PA County Hotspot Snapshot, schedule an AI safety evaluation sprint, or discuss a prime subcontractor teaming agreement. Direct principal response within one business day.</p>
       </div>
-      <a class="btn-primary" href="mailto:Kazzz@duck.com?subject=ClarosMed%20Enterprise%20Evaluation%20%26%20Reference%20Inquiry">Request Credentials &amp; References</a>
+      <div class="cta-buttons">
+        <a class="btn-primary" href="mailto:zughbieh@gmail.com?subject=Executive%20Briefing%20Request%20-%20ClarosMed%20%2F%20Do%20Better%20Consulting">Email Principal Desk</a>
+        <a class="btn-secondary" href="tel:5703098752">Call 570-309-8752</a>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <div>&copy; 2026 ClarosMed (ClarosMed.org), a DBA of Do Better Consulting LLC · New York. All rights reserved.</div>
-      <div>Verified references available upon request.</div>
+      <div>&copy; 2026 ClarosMed (ClarosMed.org), a practice of Do Better Consulting LLC · New York. All rights reserved.</div>
+      <div>Verified references &amp; W-9 available upon request.</div>
     </div>
   </footer>
+
+  <script>
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
